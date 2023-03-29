@@ -16,6 +16,7 @@ function App() {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_API_KEY);
     if (!window.location.href.includes("localhost")) {
       ReactGA.initialize("G-KGGXEYE84V");
 
@@ -27,7 +28,7 @@ function App() {
     setInitialized(true);
   }, []);
 
-  const API_KEY = "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";
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const APIBODY = {
     model: "gpt-3.5-turbo",
     messages: [
